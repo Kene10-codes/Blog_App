@@ -1,0 +1,24 @@
+<html lang="en">
+    <%- include("./partials/head.ejs") %>
+<body>
+    <%- include("./partials/nav.ejs") %>
+    <div class="blogs content">
+        <h2>All Blogs</h2> 
+     <div class="blog-wrapper">
+        <% if(blogs.length > 0) { %>
+          <% blogs.map(blog => { %>
+            <a class="single" href="/blogs/<%= blog._id %>">
+             <h3 class="title"><%= blog.title %></h3>
+            </a>
+            <p class="snippet"><%= blog.snippet %></p>
+            <span class="date">Date published: <%=  blog.createdAt %></span>
+  
+        <% }) %> 
+        <% } else { %>
+            <p>No blogs to display...</p>
+        <%  } %>
+      </div>
+    </div>
+    <%- include("./partials/footer.ejs") %>
+</body>
+</html>

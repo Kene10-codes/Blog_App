@@ -1,0 +1,229 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;1,400&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    padding: 1rem 1.5rem;
+}
+
+nav p {
+    font-size: 0.8rem;
+    padding: 5px 0;
+    color: #333;
+}
+
+.hamburger {
+    display: none;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: #101010;
+}
+
+ul {
+    display: flex;
+    flex-direction: row;
+}
+
+li {
+    list-style-type: none;
+    padding: 0 10px;
+    font-size: 0.8rem;
+}
+
+a {
+    text-decoration: none;
+}
+
+.active {
+    font-weight: 500;
+}
+
+.blogs,
+.details {
+    height: 70vh;
+}
+
+.details__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.details__content {
+    font-size: 0.8rem;
+}
+
+.details .delete__blog {
+    background-color: red;
+    border-radius: 10px;
+    width: 90px;
+    padding: 5px;
+    color: white;
+    text-align: center;
+    font-size: 0.8rem;
+}
+.content {
+    padding: 0 20px;
+}
+
+.content h2 {
+    color: #333;
+    font-size: 1.4rem;
+    padding: 10px 0;
+    margin: 0;  
+}
+
+.content h3 {
+    font-size: 1rem;
+    padding: 5px 0;
+    margin: 0;
+    text-decoration: underline;
+}
+
+.content p,
+.content span {
+    color: #333;
+    font-size: .9rem;
+    margin: 0;
+    padding: 3px 0;   
+}
+
+.form__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+form {
+    border: 3px solid #989898;
+    width: 250px;
+    max-width: 100%;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: #333;
+}
+
+form label {
+    display: block;
+    font-size: 0.65rem;
+    margin: 5px 0;
+}
+
+form input, 
+textarea {
+    display: block;
+    margin: 5px 0;
+    outline: none;
+    padding: 2px;
+    width: 100%;
+    padding: 3px;
+}
+
+form input::placeholder {
+    font-size: 0.6rem;
+    color: #a09696;
+  }
+
+button {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    margin: 10px 0;
+    background: rgb(82, 18, 231);
+    color: white;
+    padding: 5px 0;
+    outline: none;
+    border: none;
+    font-size: 0.8rem;
+}
+
+button:hover {
+    background: transparent;
+    color: #333;
+    border: 1px solid rgb(82, 18, 231);
+    font-weight: 700;
+}
+
+.span {
+    font-size: 0.7rem;
+}
+
+.span a {
+    text-decoration: underline;
+}
+
+footer {
+    text-align: center;
+    font-size: 1rem;
+    color: #333;
+}
+
+@media only screen and (max-width: 768px) {
+    .navbar__menu {
+        position: fixed;
+        left: -100%;
+        top: 5rem;
+        flex-direction: column;
+        background-color: #fff;
+        width: 100%;
+        border-radius: 10px;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow:
+            0 10px 27px rgba(0, 0, 0, 0.05);
+    }
+
+    .navbar__menu.active {
+        left: 0;
+    }
+
+    .navbar__item {
+        margin: 2.5rem 0;
+    }
+
+    .hamburger {
+        display: block;
+        cursor: pointer;
+    }
+
+    
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    .details__wrapper {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .details .delete__blog {
+        margin-top: 10px;
+    }
+}
