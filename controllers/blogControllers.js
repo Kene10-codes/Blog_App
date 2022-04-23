@@ -33,7 +33,7 @@ const blog_delete = (req, res) => {
     const id = req.params.id
     Blog.findByIdAndDelete(id)
     .then(result => {
-        res.json({ redirect: "/" })
+        res.json({ redirect: "/blogs" })
     })
     .catch(err => console.log(err))
 }
