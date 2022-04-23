@@ -19,10 +19,10 @@ app.use(express.static("public"))
 app.use(express.urlencoded({ extended: true }))
 app.use(morgan("dev"))
 
-app.get("/", (req, res) => {
-    // res.sendFile("./views/index.html", {root: __dirname})
-   res.redirect("/blogs")
-})
+// app.get("/", (req, res) => {
+//     // res.sendFile("./views/index.html", {root: __dirname})
+//    res.redirect("/blogs")
+// })
 
 app.get("/about", (req, res) => {
     // res.sendFile("./views/about.html", {root: __dirname})
