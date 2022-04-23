@@ -3,9 +3,9 @@ const loginAndRegisterControllers = require("../controllers//loginAndRegisterCon
 
 const router = express.Router()
 
+router.get("/register", loginAndRegisterControllers.register_get)
 router.post("/register", loginAndRegisterControllers.register_post)
-router.get("/reg", loginAndRegisterControllers.register_get)
+router.get("/login", loginAndRegisterControllers.login_get)
 router.post("/login", loginAndRegisterControllers.login_post)
-router.get("/log", loginAndRegisterControllers.login_get)
 
 module.exports = router

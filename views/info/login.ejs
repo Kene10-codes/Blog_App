@@ -3,7 +3,7 @@
 <body>
     <%- include("../partials/nav.ejs") %>
     <div class="blogs form__container">
-        <form action="/login" method="post">
+        <form action="/info/login" method="post">
             <label>Email:
                 <input type="email" id="email" name="email"  required />
             </label>
@@ -11,7 +11,7 @@
                 <input type="password" id="password" name="password"  required />
             </label>
             <button>Log In</button>
-            <span class="span">Don't have account? <a href="/reg">Register</a></span>
+            <span class="span">Don't have account? <a href="/register">Register</a></span>
         </form>
     </div>
     <%- include("../partials/footer.ejs") %>

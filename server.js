@@ -4,12 +4,13 @@ const mongoose = require("mongoose")
 const dotenv = require("dotenv").config()
 const blogRoutes =  require("./routes/blogRouter")
 const registerAndLogin =  require("./routes/loginAndRegisterRouter")
+const PORT = process.env.DB_SERVER_PORT || 5000
 
 
 const app = express()
 
 mongoose.connect(process.env.DB_CONNECTION, { useNewUrlParser: true, useUnifiedTopology: true })
-.then(result => app.listen(3300, () => console.log("connected DB")))
+.then(result => app.listen(PORT, () => console.log(`connected DB on port ${PORT}`)))
 .catch(err => console.log(err))
 
 app.set("view engine", "ejs")
@@ -34,7 +35,7 @@ app.get('/about-us', (req, res) => {
 })
 
 app.use("/blogs", blogRoutes)
-app.use("/", registerAndLogin)
+app.use("/info", registerAndLogin)
 
 
 
