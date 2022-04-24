@@ -4,11 +4,17 @@
                 <p>Your favourite blog app</p>
             </div>
             <ul class="navbar__menu">
+                <% if(user) { %>
+                    <li class="active"><a href="/blogs">Blogs</a></li>
+                    <li class="navbar__item"><%= user.email %></li>
+                    <li class="navbar__item"><a href="/info/logout">Log out</a></li>
+               <% } else { %>
                 <li class="active"><a href="/blogs">Blogs</a></li>
                 <li class="navbar__item"><a class="nav__link" href="/about">About</a></li>
                 <li class="navbar__item"><a class="nav__link" href="/blogs/create">New Blog</a></li>
                 <li class="navbar__item"><a class="nav__link" href="/info/login">Login</a></li>
                 <li class="navbar__item"><a class="nav__link" href="/info/register">Register</a></li>
+            <%  } %>
             </ul>
         
             <div class="hamburger">

@@ -1,9 +1,11 @@
+const bcrypt = require("bcryptjs")
 const mongoose = require("mongoose")
 const Schema = mongoose.Schema
 
 const registerSchema = new Schema({
     username: {
         type: String,
+        lowercase: true,
         required: true
     },
     fullname: {
@@ -23,6 +25,18 @@ const registerSchema = new Schema({
         default: Date.now
     }
 }, {timestamps: true})
+
+registerSchema.statics.login = async (email, password) => {
+    const user = await this.findOne({ email })
+    if(user) {
+        const auth = await bcrypt.compare(password, user.password)
+        if(auth) {
+            return user
+        }
+        throw Error("incorrect password")
+    }
+    throw Error("incorrect email")
+}
 
 const Register = mongoose.model("Register", registerSchema)
 module.exports = Register

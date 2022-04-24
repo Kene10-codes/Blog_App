@@ -2,8 +2,10 @@ const express = require("express")
 const morgan = require("morgan")
 const mongoose = require("mongoose")
 const dotenv = require("dotenv").config()
+const cookieParser = require("cookie-parser")
 const blogRoutes =  require("./routes/blogRouter")
 const registerAndLogin =  require("./routes/loginAndRegisterRouter")
+const { checkUser } = require("./middleware/requireAuth")
 const PORT = process.env.DB_SERVER_PORT || 5000
 
 
@@ -17,15 +19,17 @@ app.set("view engine", "ejs")
 
 app.use(express.static("public"))
 app.use(express.urlencoded({ extended: true }))
+app.use(express.json())
+app.use(cookieParser())
 app.use(morgan("dev"))
 
+
+app.use("*", checkUser)
 app.get("/", (req, res) => {
-    // res.sendFile("./views/index.html", {root: __dirname})
    res.redirect("/blogs")
 })
 
 app.get("/about", (req, res) => {
-    // res.sendFile("./views/about.html", {root: __dirname})
     res.render("blogs/about", { title: "About" })
 })
 
@@ -36,7 +40,6 @@ app.get('/about-us', (req, res) => {
 
 app.use("/blogs", blogRoutes)
 app.use("/info", registerAndLogin)
-
 
 
 //404 page
